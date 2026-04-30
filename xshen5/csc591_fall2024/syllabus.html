@@ -1,0 +1,786 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NCSU Course Syllabus: CSC 591/791 - Real-time AI and Machine Learning Systems</title>
+<style type="text/css">
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td{margin:0;padding:0;}
+
+body {line-height:1;color:#111;background: #fff;}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol{font-size:100%;}
+h1, h2, h3, h4, h5, h6{font-weight:700;}
+
+ol, ul{list-style:none;}
+
+address, caption, cite, code, dfn, th, var{font-style:normal;font-weight:400;}
+
+fieldset, img{border:0;}
+
+caption, th{text-align:left;}
+
+:focus {outline: 0;}
+
+table {border-collapse: collapse;border-spacing: 0;}
+
+q:before, q:after{content:'';}
+
+hr{border: 0;border-top: 1px solid #555;margin: 0;height: 1px;}
+
+/* 
+this is for IE7:
+hr{ position:relative; top:-7px;}
+hr + *{ position:relative; top:-14px; }
+*/
+body, a, input, textarea, button {
+	font-size: 10pt; 
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+}
+
+a { 
+	text-decoration: underline; 
+}
+
+a:link		{ color:#333333; }
+a:visited	{ color:#443333; }
+a:hover		{ color:#000000; }
+
+a:active	{ color:#443333; }
+
+a:focus	{ 
+	outline: dotted 1px black;
+    -moz-outline-style: dotted 1px black; 
+}
+
+.container {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	color: #000000;
+	font-size: 10pt;
+	min-width:450px;
+}
+
+.banner {
+	padding:5px;
+	position: relative;
+	height: 96px;
+	margin-bottom: 5px;
+	background-color:#CC0000;
+	background-image:url(../images/header-background.gif);
+	background-position:top center;
+	background-repeat:no-repeat;
+	color:white;
+}
+
+.redbg {
+	padding:1px;
+	background-color:#CC0000;
+	color:white;
+}
+
+.redbg a {
+	color:white;
+}
+
+.subbanner {
+	background-color:transparent;
+	font-size:8pt;
+}
+
+.subbanner a {
+	font-size:8pt;
+}
+
+.powered_by {
+	line-height:8pt;
+	font-size:7pt;
+	letter-spacing:1px;
+	color:white;
+	position:absolute;
+	top:20px;
+	right:5px;
+}
+
+.powered_by a {
+	font-size:7pt;
+	letter-spacing:1px;
+	color:white;
+	text-decoration:underline;
+}
+
+.administered_by {
+	line-height:8pt;
+	font-size:7pt;
+	letter-spacing:1px;
+	color:white;
+	position:absolute;
+	top:5px;
+	right:5px;
+}
+
+.administered_by a {
+	font-size:7pt;
+	letter-spacing:1px;
+	color:white;
+	text-decoration:underline;
+}
+
+.header_help {
+	line-height:8pt;
+	font-size:8pt;
+	letter-spacing:1px;
+	color:white;
+	position:absolute;
+	font-weight:bold;
+	top:40px;
+	right:5px;
+}
+
+.header_help a {
+	font-size:8pt;
+	letter-spacing:1px;
+	color:white;
+	text-decoration:underline;
+}
+
+.ncsu_logo {
+	margin-left:8px;
+}
+
+.app_logo {
+	margin-left:10px;
+}
+
+.duap_logo {
+	margin-top:2px;
+	margin-left:10px;
+	margin-bottom:2px;
+}
+
+.login {
+	position:absolute;
+	bottom:12px;
+	line-height:11pt;
+	right:7px;
+	font-size:8pt;
+	text-align:right;
+	color:white;
+}
+
+.login a {
+	font-size:8pt;
+	text-decoration:none;
+	color:white;
+	padding:2px;
+}
+
+.login a:hover {
+	font-size:8pt;
+	text-decoration:underline;
+}
+
+.content_body {
+	padding: 0.5em;
+	width:90%;
+	margin:0 auto;
+}
+
+.footer {
+	clear: both;
+	padding: 5px;
+	margin-top: 3em;
+	margin-bottom: 1em;
+	color: #999999;
+	text-align: center;
+	font-size: 8pt;
+	line-height:10pt;
+	border-top: 1px solid #CE0000;
+}
+
+.footer a {
+	color: #999999;
+	font-size: 8pt;
+}
+
+
+.help_footer {
+	clear: both;
+	padding: 0.6em;
+	margin-top: 3em;
+	margin-bottom: 3em;
+	border-top: 1px solid #CE0000;
+	border-bottom: 1px solid #CE0000;
+	color: #333333;
+	text-align: center;
+	font-size: 10pt;
+	font-weight:bold;
+	line-height:11pt;
+}
+
+.help_footer a {
+	color: #333333;
+	font-size: 10pt;
+	font-weight:bold;
+}
+
+.help_footer p {
+	padding:3px 0;
+}
+
+
+.date_time {
+	float:left;
+}
+
+span.plain {
+	font-weight:normal;
+}
+
+div.credits h1,h2 { 
+	margin-top:1em;
+}
+
+div.credits h1.top,h2.top { 
+	margin-top:0;
+}
+
+div.credits p {
+	margin:5px 0;
+	line-height:110%;
+}
+
+div.credits ul li {
+	padding:2px;
+	font-size: 9pt;
+	margin-left:1.3em;
+	list-style: disc;
+}
+
+div.credits ol li {
+	padding:2px;
+	font-size: 9pt;
+	margin-left:2.3em;
+	list-style: decimal;
+}
+
+div.cleardiv {
+	clear:both;
+	line-height:1px;
+	height:1px;
+}
+
+.icon {
+	vertical-align:middle;
+	height:16px;
+	width:16px;
+}
+
+.icon16 {
+	vertical-align:middle;
+	height:16px;
+	width:16px;
+}
+
+.icon12 {
+	vertical-align:middle;
+	height:12px;
+	width:12px;
+}
+
+a, input, textarea, button {
+	font-size: 9pt; 
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+}
+
+body {
+	font-size: 9pt; 
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	margin:1em;
+	padding:0.5em;
+}
+
+ul, ol {
+	margin:0;
+	margin-top:0.4em;
+	padding:0; 
+}
+
+ul {
+	margin-left:2em;
+}
+
+ol {
+	margin-left:2.5em;
+}
+
+li {
+	margin:0;
+	padding:0;
+}
+
+ul li {
+	list-style:disc;
+}
+
+ol li {
+	list-style: decimal;
+}
+
+p {
+	margin:0;
+	margin-top:0.4em;
+	padding:0; 
+}
+
+/*=======================================*/
+/* SECTION DIVS */
+/*=======================================*/
+
+div.section {
+	margin-left:1em;
+}
+
+/*=======================================*/
+/* TEXT DIVS */
+/*=======================================*/
+
+div.text {
+	margin:0.5em;
+	padding:0;
+	font-size:9pt;
+	line-height:12pt;
+}
+
+/*=======================================*/
+/* COURSE INFO DIV */
+/*=======================================*/
+
+div.course_info {
+	margin:0.5em;
+	padding:0;
+	font-size:11pt;
+	line-height:15pt;
+	font-weight:bold;
+}
+
+/*=======================================*/
+/* HEADINGS */
+/*=======================================*/
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight:bold;
+	background-color:#DDDDDD;
+	padding:0.3em;
+	margin-top:0.5em;
+	margin-bottom:0.1em;
+}
+
+h1 {
+	font-size:18pt;
+	border-top:solid 3px #222222;
+}
+
+h2 {
+	font-size:14pt;
+	border-top:solid 3px #777777;
+}
+
+h3 {
+	font-size:12pt;
+	border-top:solid 2px #777777;
+}
+
+h4 {
+	font-size:11pt;
+	border-top:solid 1px #777777;
+}
+
+h5 {
+	font-size:10pt;
+	border-top:solid 1px #777777;
+}
+
+h6 {
+	font-size:10pt;
+	border-top:solid 1px #777777;
+}
+
+/*=======================================*/
+/* HEADER AND FOOTER */
+/*=======================================*/
+
+.header {
+}
+
+.headerleft {
+	padding:0.6em;
+	padding-bottom:0.5em;
+	float:left;
+}
+
+.headerright {
+	padding:0.6em;
+	padding-bottom:0.5em;
+	text-align:right;
+	float:right;
+}
+
+.headerright a {
+	font-size:8pt;
+	font-weight:bold;
+	text-decoration:none;
+	margin:0;
+	margin-left:0.6em;
+	background-color:#EEEEEE;
+	border:solid 1px #EEEEEE;
+	padding:4px;
+	padding-bottom:5px;
+}
+
+.headerright a:hover {
+	text-decoration:underline;
+	background-color:#FFEEEE;
+	border:solid 1px #CD0000;
+}
+
+.footer {
+	margin-top:2em;
+	line-height:12pt;
+}
+
+/*=======================================*/
+/* LETTER GRADES TABLE */
+/*=======================================*/
+
+.letter_grades td {
+	padding:1px 4px;
+}
+
+.letter_grades td.l {
+	text-align:left;
+}
+
+.letter_grades td.c {
+	text-align:left;
+	padding:1px 3px 1px 7px;
+	font-weight:bold;
+}
+
+.letter_grades td.r {
+	text-align:right;
+}
+
+/*=======================================*/
+/* GRADE COMPONENTS TABLE */
+/*=======================================*/
+
+table.grade_components {
+	border:solid 1px black;
+	margin:0.5em 0;
+	width:90%;
+}
+
+table.grade_components thead {
+	padding:0;
+}
+
+table.grade_components thead th {
+	border:solid 1px black;
+	padding:5px;
+	vertical-align:middle;
+	font-size:10pt;
+	line-height:12pt;
+	font-weight:bold;
+	background-color:#FFFFFF;
+	text-align:center;
+}
+
+table.grade_components thead th.details {
+	background-color:#FFFFFF;
+	text-align:left;
+}
+
+table.grade_components tbody {
+	background-color:#EEEEEE;
+}
+
+table.grade_components tbody td {
+	border:solid 1px black;
+	padding:3px 4px;
+	text-align:left;
+	font-weight:bold;
+}
+
+table.grade_components tbody td.details {
+	font-weight:normal;
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+
+		
+		</div>
+<h1>CSC 591/791 Course Syllabus</h1>
+<h2>CSC 591/791 &ndash; High Performance Machine Learning and Real-Time AI</h2>
+<div class="course_info">
+<p>Fall 2024</p>
+<p>3 Credit Hours</p>
+</div>
+<h3>Course Description</h3>
+<div class="text">
+<p><span style="font-family: 'Trebuchet MS'; font-size: medium;">
+Description: As machine learning (ML) and Artificial Intelligence (AI) gets rapidly adopted everywhere, the speed in learning and inference has become one of the most frequently encountered roadblocks for practical adoptions. This course focuses on the challenges and solutions for achieving high performance and real-time response of ML and AI while keeping the accuracy satisfactory. The course will cover the common platforms and toolkits for modern Machine Learning and AI, the factors and tradeoffs affecting the performance, various optimization techniques for ML and AI, and the trends and research directions being actively investigated in this field. 
+</div>
+<h3>Learning Outcomes</h3>
+<div class="text">
+<p><span style="font-family: 'Trebuchet MS'; font-size: medium;">By the end of the course, students should be able to do the following.</span></p>
+<ul style="font-family: 'Trebuchet MS'; font-size: medium;">
+<li>explain the factors and tradeoffs affecting the performance</li>
+<li>master some tools and techniques for addressing
+  performance issues of ML and AI</li>
+<li>describe the directions being actively investigated in this field</li>
+</ul>
+</div>
+<h3>Course Structure</h3>
+<div class="text">
+<p>The course will consist of a series of lectures, student presentations, and in-class discussions.</p>
+</div>
+<h3>Instructors</h3>
+<div class="text">
+<b>Xipeng Shen</b> (xshen5) - <i>Instructor</i><br /><b>Email:</b> <a href="mailto:xshen5@ncsu.edu">xshen5@ncsu.edu</a>
+<br /><b>Phone:</b> 919-513-7577
+<br /><b>Office Location:</b> EBII 3276
+<br /><b>Office Hours:</b> 1:00-2:00pm Friday.
+</div>
+<h3>Course Meetings</h3>
+<div class="section">
+<h4>Lecture</h4>
+<div class="text">
+<b>Days:</b> MWF
+<br /><b>Time:</b> 8:30am - 11:15am
+<br /><b>Campus:</b> Centennial
+<br /><b>Location:</b> EBII 01228
+<br /><i>This meeting is required.</i>
+
+</div>
+</div>
+<h3>Course Materials</h3>
+<div class="section">
+<h4>Textbooks</h4>
+<div class="text">
+<br />None. The class will be based on slides, notes, and research papers.
+</div>
+
+</div>
+<h4>Expenses</h4>
+<div class="text">
+<p>None.</p>
+</div>
+<h4>Materials</h4>
+<div class="text">
+<p>None.</p>
+</div>
+</div>
+<h3>Requisites and Restrictions</h3>
+<div class="section">
+<h4>Prerequisites</h4>
+<div class="text">
+Introduction-level knowledge of ML, data structures (CSC316 or equivalent), Python. Helpful: C/C++, CUDA, GPU.
+</div>
+<h4>Co-requisites</h4>
+<div class="text">
+<p>None.</p>
+</div>
+<h4>Restrictions</h4>
+<div class="text">
+<p>None.</p>
+</div>
+</div>
+<h3>General Education Program (GEP) Information</h3>
+<div class="section">
+<h4>GEP Category</h4>
+<div class="text">
+<p>This course does not fulfill a General Education Program category.</p>
+</div>
+<h4>GEP Co-requisites</h4>
+<div class="text">
+<p>This course does not fulfill a General Education Program co-requisite.</p>
+</div>
+</div>
+<h3>Transportation</h3>
+<div class="text">
+<p>This course will not require students to provide their own transportation. Non-scheduled class time for field trips or out-of-class activities is NOT required for this class.</p>
+</div>
+<h3>Safety &amp; Risk Assumptions</h3>
+<div class="text">
+<p>None.</p>
+</div>
+<h3>Grading</h3>
+<div class="section">
+<h4>Grade Components</h4>
+<div class="text">
+			<div style="margin:1em">
+			<table cellspacing="0" cellpadding="0" border="0" class="grade_components" summary="The components of the student's grade, the weight of each.">
+				<thead>
+					<tr><th>Component</th><th>Weight</th><th class="details">Details</th></tr>
+				</thead>
+				<tbody>					<tr>
+		
+					<td>Course Project</td>
+					<td>30%</td>
+					<td class="details"><p><span style="font-family:
+					'Times New Roman'; font-size:
+					16px;">The course project will
+					be a group programming project with group size >= 1 and <=3. </span></p></td>
+					</tr>					<tr>
+					<td>Assignments</td>
+					<td>50%</td>
+					<td class="details"><p><span style="font-family:
+					'Times New Roman'; font-size:
+					16px;">There will be several
+					written/programming assignments. </span></p></td>
+					</tr> <tr>
+					<td>Quizes & Presentations</td>
+					<td>20%</td>
+					<td class="details"><p><span style="font-family:
+					'Times New Roman'; font-size:
+					16px;"> There will be a number
+					of in-class quizes throughout
+					the semester. For CSC791
+					students, each will
+					additionally give a
+					paper presentation (which
+					weights 5% in the total grades
+					and quizes weight 15% instead
+					of 20%).</span></p></td>
+					</tr>					
+					</tbody>
+			</table>
+			</div></div>
+<h4>Letter Grades</h4>
+<div class="text">
+			<div style="margin:1em"><strong>This Course uses the Following (Non-Standard) Letter Grading Scale:</strong>
+
+			<table cellpadding="0" cellspacing="0" border="0" class="letter_grades" summary="The standard mapping of points to letter grades for this course.">
+				<tbody>					<tr><td class="r">97%</td><td>&le;</td><td class="c"><strong>A+</strong></td><td>&le;</td><td>100%</td></tr>					<tr><td class="r">93%</td><td>&le;</td><td class="c"><strong>A</strong></td><td>&lt;</td><td>97%</td></tr>					<tr><td class="r">87%</td><td>&le;</td><td class="c"><strong>A-</strong></td><td>&lt;</td><td>93%</td></tr>					<tr><td class="r">85%</td><td>&le;</td><td class="c"><strong>B+</strong></td><td>&lt;</td><td>87%</td></tr>					<tr><td class="r">80%</td><td>&le;</td><td class="c"><strong>B</strong></td><td>&lt;</td><td>85%</td></tr>					<tr><td class="r">75%</td><td>&le;</td><td class="c"><strong>B-</strong></td><td>&lt;</td><td>80%</td></tr>					<tr><td class="r">70%</td><td>&le;</td><td class="c"><strong>C+</strong></td><td>&lt;</td><td>75%</td></tr>					<tr><td class="r">65%</td><td>&le;</td><td class="c"><strong>C</strong></td><td>&lt;</td><td>70%</td></tr>					<tr><td class="r">60%</td><td>&le;</td><td class="c"><strong>C-</strong></td><td>&lt;</td><td>65%</td></tr>					<tr><td class="r">56%</td><td>&le;</td><td class="c"><strong>D+</strong></td><td>&lt;</td><td>60%</td></tr>					<tr><td class="r">50%</td><td>&le;</td><td class="c"><strong>D</strong></td><td>&lt;</td><td>56%</td></tr>					<tr><td class="r">45%</td><td>&le;</td><td class="c"><strong>D-</strong></td><td>&lt;</td><td>50%</td></tr>					<tr><td class="r">0%</td><td>&le;</td><td class="c"><strong>F</strong></td><td>&lt;</td><td>45%</td></tr>				</tbody>
+			</table>
+			</div></div>
+<h4>Requirements for Credit-Only (S/U) Grading</h4>
+<div class="text">
+<p>Performance in research, seminar and independent study types of courses (6xx and 8xx) is evaluated as either "S" (Satisfactory) or "U" (Unsatisfactory), and these grades are not used in computing the grade point average. For credit only courses (S/U) the requirements necessary to obtain the grade of "S" must be clearly outlined.</p>
+</div>
+<h4>Requirements for Auditors (AU)</h4>
+<div class="text">
+<p>Information about and requirements for auditing a course can be found at <a href="http://policies.ncsu.edu/regulation/reg-02-20-04">http://policies.ncsu.edu/regulation/reg-02-20-04</a>.</p>
+</div>
+<h4>Policies on Incomplete Grades</h4>
+<div class="text">
+<p>If an extended deadline is not authorized by the Graduate School, an unfinished incomplete grade will automatically change to an F after either (a) the end of the next regular semester in which the student is enrolled (not including summer sessions), or (b) by the end of 12 months if the student is not enrolled, whichever is shorter. Incompletes that change to F will count as an attempted course on transcripts. The burden of fulfilling an incomplete grade is the responsibility of the student. The university policy on incomplete grades is located at <a href="http://policies.ncsu.edu/regulation/reg-02-50-03">http://policies.ncsu.edu/regulation/reg-02-50-03</a>. Additional information relative to incomplete grades for graduate students can be found in the Graduate Administrative Handbook in Section 3.18.F at <a href="http://www.fis.ncsu.edu/grad_publicns/handbook/">http://www.fis.ncsu.edu/grad_publicns/handbook/</a></p>
+</div>
+<h4>Late Assignments</h4>
+<div class="text">
+<p><span style="font-size: 16px; color: #990000;"><em><strong>No late assignments will be accepted</strong></em></span><span style="font-family: 'Times New Roman'; font-size: 16px;">. If an emergency (</span><em style="font-family: 'Times New Roman'; font-size: 16px;">e.g.</em><span style="font-family: 'Times New Roman'; font-size: 16px;">, hospitalization) prevented an assignment from being submitted, its grade will be determined by averaging the completed assignments in the same category. Instructor may grant an extension if a student has some extenuating circumstances warranting it (which is very rare). Student must </span><em style="font-family: 'Times New Roman'; font-size: 16px;">receive</em><span style="font-family: 'Times New Roman'; font-size: 16px;"> this extension by noon the day it is due. Note: requesting an extension is not the same as receiving it.</span></p>
+</div>
+<h3>Attendance Policy</h3>
+<div class="section">
+<p>For complete attendance and excused absence policies, please see <a href="http://policies.ncsu.edu/regulation/reg-02-20-03">http://policies.ncsu.edu/regulation/reg-02-20-03</a></p>
+<h4>Attendance Policy</h4>
+<div class="text">
+  <p style="font-size: medium; font-family: 'Times New Roman';">
+While attendance is not officially recorded, students are expected to attend classes. Class periods will include material not covered in the reading assignments, and students are responsible for knowing this information. While efforts are made to provide critical information through electronic resources (web page, mailing list, etc.), some information may not be available outside of class in a timely manner or at all. Although this may be unintentional, students are still responsible for all information presented in class. There will be several in-class quizzes; make-up quizzes will only be offered if the student has a legitimate reason for the absence, supported by convincing proof.</p>
+<div><br /></div>
+</div>
+<h4>Absences Policy</h4>
+<div class="text">
+<p>A legitimate absence requires proof provided to the instructor ahead of time. No make-up quizzes will be given for absences that are not justified with legitimate proof.</p>
+</div>
+<h4>Makeup Work Policy</h4>
+<div class="text">
+  <p>Makeup quizzes or assignments are allowed only in special cases where the student provides legitimate proof to justify the circumstances that prevented them from completing the quizzes or assignments. No makeup is allowed for the course project.</p>
+</div>
+<h4>Additional Excuses Policy</h4>
+<div class="text">
+<p>None.</p>
+</div>
+</div>
+<h3>Academic Integrity</h3>
+<div class="section">
+<h4>Academic Integrity</h4>
+<div class="text">
+<p>Students are required to comply with the university policy on academic integrity found in the Code of Student Conduct found at <a href="http://policies.ncsu.edu/policy/pol-11-35-01">http://policies.ncsu.edu/policy/pol-11-35-01</a></p>
+<p> </p>
+<p class="MsoNormal" style="font-size: medium; font-family: 'Times New Roman'; margin: 0in 0in 0.0001pt;">Students are expected to maintain high standards of academic integrity and honesty. University guidelines regarding academic integrity will be followed. Cheating will result in disciplinary actions, up to the full penalties specified in the guideline. A grade of zero will be given to the assignment in question for a minor offense. A major offense, including any violation on a test, could result in failure of the course. All suspected violations will be reported to the <a href="http://www.ncsu.edu/student_affairs/osc/">Office of Student Conduct</a>, where a guilty outcome on a second offense can mean suspension from the university.</p>
+<p> </p>
+<p style="font-size: medium; font-family: 'Times New Roman';">Please keep in mind that academic integrity in the classroom translates to professional integrity in the workplace. Moreover, awarding similar grades to students who have maintained academic integrity and to students who have cheated results in conferring equivalent degrees on them, and reduces the value of that degree in the workplace. It is the responsibility of every student as well as the instructor and TA to see that this is not allowed to happen.</p>
+<p> </p>
+</div>
+<h4>Academic Honesty</h4>
+<div class="text">
+<p>See <a href="http://policies.ncsu.edu/policy/pol-11-35-01">http://policies.ncsu.edu/policy/pol-11-35-01</a> for a detailed explanation of academic honesty.</p>
+<p>None.</p>
+</div>
+<h4>Honor Pledge</h4>
+<div class="text">
+<p>Your signature on any test or assignment indicates "I have neither given nor received unauthorized aid on this test or assignment."</p>
+</div>
+</div>
+<h3>Electronically-Hosted Course Components</h3>
+<div class="text">
+<p>Students may be required to disclose personally identifiable information to other students in the course, via electronic tools like email or web-postings, where relevant to the course. Examples include online discussions of class topics, and posting of student coursework. All students are expected to respect the privacy of each other by not sharing or using such information outside the course.</p>
+<p><strong>Electronically-hosted Components:</strong> online discussions of class topics</p>
+</div>
+<h3>Accommodations for Disabilities</h3>
+<div class="text">
+<p>Reasonable accommodations will be made for students with verifiable disabilities. In order to take advantage of available accommodations, student must register with the Disability Services Office (<a href="http://www.ncsu.edu/dso">http://www.ncsu.edu/dso</a>), 919-515-7653.  For more information on NC State's policy on working with students with disabilities, please see the Academic Accommodations for Students with Disabilities Regulation at <a href="http://policies.ncsu.edu/regulation/reg-02-20-01">http://policies.ncsu.edu/regulation/reg-02-20-01.</a></p>
+</div>
+<h3>Non-Discrimination Policy</h3>
+<div class="text">
+<p>NC State University provides equality of opportunity in education and employment for all students and employees.  Accordingly, NC State affirms its commitment to maintain a work environment for all employees and an academic environment for all students that is free from all forms of discrimination. Discrimination based on race, color, religion, creed, sex, national origin, age, disability, veteran status, or sexual orientation is a violation of state and federal law and/or NC State University policy and will not be tolerated.  Harassment of any person (either in the form of quid pro quo or creation of a hostile environment) based on race, color, religion, creed, sex, national origin, age, disability, veteran status, or sexual orientation also is a violation of state and federal law and/or NC State University policy and will not be tolerated.  Retaliation against any person who complains about discrimination is also prohibited.  NC State's policies and regulations covering discrimination, harassment, and retaliation may be accessed at <a href="http://policies.ncsu.edu/policy/pol-04-25-05">http://policies.ncsu.edu/policy/pol-04-25-05</a> or <a href="http://www.ncsu.edu/equal_op/">http://www.ncsu.edu/equal_op/.</a> Any person who feels that he or she has been the subject of prohibited discrimination, harassment, or retaliation should contact the Office for Equal Opportunity (OEO) at 919-515-3148.</p>
+</div>
+<h2>Course Schedule</h2>
+<div class="section">
+<p><b>NOTE:</b> The course schedule is subject to change.</p>
+<h3>Introduction</h3>
+<div class="text">
+<p>
+	<li>Traditional ML/AI techniques</li>
+	<li>Deep learning techniques</li>
+    <li>Common platforms and toolkits</li>
+</p>
+</div>
+<h3>Performance considerations</h3>
+<div class="text">
+<p>
+<li>Metrics, factors</li>
+</p>
+</div>
+<h3>Optimizations</h3>
+<div class="text">
+<p>
+<li>ML model optimizations</li>
+<li>ML compilation and optimizations</li>
+</p>
+</div>
+<h3>Advanced topics</h3>
+<div class="text">
+<p>
+  <li>Compression-compilation co-design</li>
+  <li>Advanced optimizations</li>
+<li>Other research topics</li>
+</p>
+</div>
+</div>
+
+			<div class="footer">
+				<div>&copy; 2021 <a href="http://www.ncsu.edu/">North Carolina State University</a></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+li.bigurl{font-size:22px;margin:.75em}
+li.bigurl>a{color:#9b479f}
+.top-buffer{margin-top:20px}
+.booktitle{font-style:italic}
+.paper p{padding:0px;padding-left:1em;margin:0px}
+.paperbody{font-size:12px}
+.rounded-image{border-radius: 5px;}
+
+.articleHeader {color: #d9230f;}
+.researchHeader {color: #d9230f;}
+			
+.box
+{
+	padding: .5em .5em .5em 1em;
+}
+
+.box .inner 
+{
+	background: #fff;
+	box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.15), 0px 2px 3px 0px rgba(0,0,0,0.1);
+	text-align: center;
+
+	height: 375px;
+}
+
+.people
+{
+	padding: .5em .5em .5em 1em;
+}
+
+.people .people-inner 
+{
+	background: #eee;
+	box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.15), 0px 2px 3px 0px rgba(0,0,0,0.1);
+	text-align: center;
+
+	height: 175px;
+}
+

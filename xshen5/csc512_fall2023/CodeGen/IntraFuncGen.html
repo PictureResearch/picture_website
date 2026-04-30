@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<!-- saved from url=(0077)http://people.engr.ncsu.edu/xshen5/csc512_fall2016/projects/IntraFuncGen.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+     
+     <meta name="Author" content="Chen Ding">
+     <meta name="GENERATOR" content="Mozilla/4.7 [en]C-CCK-MCD {Sony}  (WinNT; U) [Netscape]">
+     <title>Intra-Function Code Generation Assignment</title>
+  </head>
+  <body>
+  
+  <dl>
+  <h3>
+  Intra-function code generation</h3>
+  </dl>
+
+  <h4>
+  <a NAME="What You Need To Do"></a>What You Need To Do</h4>
+  For this project you are required to fill in the functions <i>assignment</i> and <i>ifStatement</i> in the Grammar.cpp file.&nbsp;  Both functions have a TODO comment so you can easily find them.&nbsp;  You will need to read through the code to learn how it works, and develop an understanding of how code generation works.&nbsp;  You do not need to create any additional methods or modify any other part of the program for it to work.&nbsp;  You are graded on your implementations of the 2 functions.&nbsp;  If they are implemented correctly the program will work as described in the description section.&nbsp;  You must follow the submission requirements listed in <b>What to submit</b>.&nbsp;
+  
+  <h4>
+  <a name="Description"></a>Description</h4> This part is the
+  description on what the completed code generator shall look
+  like. Some of the requirements may be already implemented in the
+  incomplete code generator that you get.
+
+   Modify the parser to generate assembly-like code for each function
+  in an input program.&nbsp; In another word, you are supposed to
+  write a code generator, which, takes an original program as input,
+  parses it, and then generates the code that can be represented by
+  the modified grammar. Note, the modified grammar is not going to be
+  used by your parser. It is for you (as a programmer) to understand
+  what the output program should look like.  The specific requirements
+  are as follows.
+  <ul>
+  <li>
+  As in previous projects, your parser should ignore (but copy) "meta-statements"
+  to the output program.</li>
+  
+  <li>
+  The output program uses the same grammar as the input program with the
+  following modifications.&nbsp; (The input program will be the
+  same set of programs used in the previous two projects, following
+  the original grammar.)</li>
+  
+  <li>
+  Grammar modification for data declaration:</li>
+  
+  <ul>
+  <li>
+  No data declaration is allowed except one array at program level and one
+  array inside each function. You may assume only "int" type is used
+  including the type of the function returning values.</li>
+  </ul>
+  
+  <li>
+  Grammar modification for assignment and expression:</li>
+  
+  <ul>
+  <li>
+  &lt;assignment&gt; --&gt; &lt;id&gt; <b>equal_sign</b> &lt;operand&gt; &lt;operation&gt;
+  &lt;operand&gt; <b>semicolon</b> | &lt;id&gt;<b>equal_sign</b> &lt;operand&gt;
+  <b>semicolon</b> | &lt;id&gt;<b>equal_sign</b>&lt;func call&gt;</li>
+  
+  <li>
+  &lt;operand&gt; --&gt; <b>NUMBER | minus_sign NUMBER | &lt;id&gt;</b></li>
+
+  <li>
+  &lt;operation&gt; --&gt; &lt;addop&gt; | &lt;mulop&gt; | &lt;comparison op&gt; | &lt;condition op&gt;</li>  
+  <li>
+  Change all mentioning of &lt;expression&gt; with &lt;operand&gt;, as in &lt;id&gt;,
+  read/write statement, &lt;func call&gt;, &lt;return&gt;, and &lt;condition&gt;.</li>
+  
+  <li>
+  Now &lt;id&gt;s are array references.</li>
+  </ul>
+  
+  <li>
+  Grammar modification for control flow:</li>
+  
+  <ul>
+  <li>
+  &lt;if-statement&gt; --&gt; <b>if left_parenthesis</b> &lt;operand&gt;
+  &lt;comparison op or condition
+  op&gt; &lt;operand&gt; <b>right_parenthesis goto</b> LABEL <b>semicolon</b></li>
+  
+  <li>
+  &lt;goto-statement&gt; --&gt; <b>goto</b> LABEL <b>semicolon</b></li>
+  
+  <li>
+  &lt;label-statement&gt; --&gt; LABEL <b>colon semicolon</b></li>
+  
+  <li>
+  LABEL is just another name for ID token</li>
+  
+  <li>
+  Do not use the previous definition of &lt;if-statement&gt;.&nbsp; Do not use
+  &lt;while-statement&gt;, &lt;break&gt;, and &lt;continue&gt;. You will have
+  to use the allowed constructs (e.g., if, goto, label) to implement
+  what these disallowed constructs try to implement in the original program.</li>
+  </ul>
+  
+  <li>
+  Grammar modification for functions:</li>
+  
+  <ul>
+  <li>
+  Function declaration and definition remain unchanged.</li>
+  
+  <li>
+  In &lt;func call&gt;, each parameter must be &lt;operand&gt; instead of &lt;experssion&gt;.</li>
+  
+  <li>
+  In &lt;return&gt;, use &lt;operand&gt; instead of &lt;expression&gt;.</li>
+  </ul>
+  
+  <li>
+  The output program should be compilable by the gcc compiler in our
+  VCL image, and have the same behavior as the input program has. An
+  exception is precision loss due to the usage of int types (e.g.,
+  original has b=1/3*3; your generated code is loc[0]=1/3;
+  loc[1]=loc[0]*3. Your code could give 0 for loc[1] rather than 1 in
+  the original). Such loss is acceptable.</li>
+  <li>The name of the generated
+  program should have "_intraGen.c" as the suffix (e.g., "foo.c"
+  becomes "foo_intraGen.c"). </li>
+  <li> You may make the following assumptions about the input
+  programs: (1) Array declarations can have only constant as the
+  size. For instance, "int A[30];" can appear in the input program,
+  but "int A[x];" or "int A[x+y]" or "int A[3+4]" will not. (2) Array elements can be passed as parameters of a function call, but
+    arrays cannot. For instance, A is an array (which can be only one
+    dimensional). A function call like "foo(A);" will not appear in
+    the input program, but "foo(A[x+y]);" could. (3) Your can assume
+  that the input program is valid if it passes through the scanner and
+  parser. 
+  </li>
+  </ul>
+  
+  <h4>
+  <a name="Example"></a>Examples</h4>
+  <p>Your generated code does not have to be exactly the same as those
+  examples. There could be multiple legal forms for a given program.
+  But your output should meet the requirement of the project. </p>
+  <a href="IntraFuncGenExamples/addTwo.c">original
+  program 1 (with parameters used in some functions)</a>
+  <br><a href="IntraFuncGenExamples/addTwo_intraGen.c">program 1
+  after intra-function code generation</a>
+  <br>
+  <a href="IntraFuncGenExamples/binrep.c">original
+  program 2</a>
+  <br><a href="IntraFuncGenExamples/binrep_intraGen.c">program 2
+  after intra-function code generation</a>
+  <br><a href="IntraFuncGenExamples/funcall.c">original
+    program 3</a>
+  <br><a href="IntraFuncGenExamples/funcall_intraGen.c">program 3
+  after intra-function code generation</a>
+  <br><a href="IntraFuncGenExamples/fibonacci.c">original
+    program
+    4 (with global arrays)<a>
+    <br><a href="IntraFuncGenExamples/fibonacci_intraGen.c">program 4
+  after intra-function code generation</a>
+  <br>&nbsp;
+  
+
+  <h4>
+    <a NAME="Tests"></a>What to submit</h4>
+  <ul>
+  <li>You must submit your solution in a .tar file.&nbsp; 
+  <b>NOT</b> zip, tar.gz, tgz or rar it needs to be .tar.&nbsp;  
+  The file name needs to be <i>unityID.tar</i>, where unityID is your unity ID.&nbsp;  </li>
+  <li>You can <b>NOT</b> have any compressed folders inside the tar.&nbsp;  This is to facilitate automation.&nbsp;</li>
+  <li>You must submit the code in the same folder structure it was provided to you in.&nbsp;  Do <b>NOT</b> create your own subdirectories.&nbsp;
+  If you change the names or layout of the folders or files, your solution will not be evaluated.&nbsp;
+  This is done to make the submissions consistent to allow for automation.&nbsp;</li>
+  <li>Do Not include your write-ups inside code sub-folders, they should be in the top level.&nbsp;</li>
+  <li>We are providing you with a Makefile to compile your solution.  When you submit your solution the Makefile must be there.&nbsp;</li>
+  </ul>
+  Submit the complete solution in a <b>.tar</b> file.&nbsp;  Include a ReadMe describing your implementation and the changes you made.&nbsp;  The README should just be of what you did.&nbsp;  <b>Do Not</b> include the any files that are the result of compilation or testing.&nbsp;
+  All other submission instruction is the same as in the Scanner
+  project.&nbsp;
+
+
+  <h4>
+    <a name="Hints"></a>Hints</h4>
+  <li>We will use 8 test programs from
+our <a href="../Common/all_tests.tar">sample
+program set</a> with slight modifications to grade your submission; 10
+points each. Programs "illegal.c" and "square.c" will not be included
+for testing.</li>
+  <li>Your code only needs to support all the language features used
+  in the sample programs. The test programs we use will not include
+  new langauge features. So if you are thinking of some complicated
+  scenario to handle, you may wnat to first check the sample codes to
+  see whether that scenario exists in them.</li>
+  <li>In your scanner project, you were asked to put csc512 prefix to
+    IDs. In this project, no such prefix is supposed to be added.</li>
+  <li>Again, your output program does not have to be exactly the same as
+  the example output we gave, as long as your output meets the form we
+  required in the project description. For instance, rather than
+  "return local[0]", you output "return 1" in the 3rd example, it is
+    okey.</li>
+  <li>The size of the global and local arrays can be larger than what
+  the program needs.</li>
+</body></html>

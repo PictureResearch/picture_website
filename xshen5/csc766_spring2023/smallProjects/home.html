@@ -1,0 +1,325 @@
+<html>
+
+<head>
+  <base href="https://research.csc.ncsu.edu/picture/xshen5/csc766_spring2023/smallProjects/" target="_blank">
+<title>CSC766 Compiler Project</title>
+<style>
+<!--
+div.Section1
+	{page:Section1;}
+ul
+	{margin-bottom:0in;}
+a:link
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+-->
+</style>
+</head>
+
+<body>
+
+<div align="center">
+
+<table border="0" cellpadding="0" cellspacing="0" width="1000" height="">
+	<!-- MSTableType="layout" -->
+	<tr>
+		<td valign="top" width="198" height="200"></td>
+		<td height="200">
+		<p align="center"><font face="Verdana" size="6">CSC766 Project</font></p>
+		<p align="center"><font face="Verdana" size="6">Code Optimizations</font></td>
+	</tr>
+	<tr>
+		<td valign="top">
+		<!-- MSCellType="NavBody" -->
+		<p align="center"><font face="Verdana" size="5" color="#000080">
+		Downloads & References</font></td>
+		<td valign="top" height="240">
+		<!-- MSCellType="ContentBody" -->
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%">
+	<!-- MSCellFormattingTableID="3" -->
+	<tr>
+		<td valign="top" height="100%">
+		<!-- MSCellFormattingType="content" -->
+		<ol>
+			<li><font face="Verdana"><a href="CSC766ProjectTemplate.tar.gz">
+			Project template</a></font></li>
+			<li><font face="Verdana">AST library: see the
+			AST_lib folder in the project
+			template. That folder should be included in your CLASSPATH</font></li>
+			<li><font face="Verdana">
+			Test programs: see the test_files folder in
+			the project template.</font></li>
+			<li><font face="Verdana">
+			Test programs converted into ADAP format: see
+			the adap_files folder in the project template.</a></font></li>
+			<li><font face="Verdana">
+			Test programs after code generation and
+			instrumentation: see the assembly_files
+			folder in the project template.</font></li>
+			<li><font face="Verdana">
+			Example optimization phase called Constant
+			Folding: <a href="example.zip">here.</a></font></li>
+			<li><font face="Verdana"><a href="AST_lib/doc/index.html">
+			Java docs of the AST library</a></font></li>
+			<li><font face="Verdana"><a href="AST overview.htm">
+			AST library overview</a></font></li>
+		</ol>
+
+		</tr>
+	<tr>
+		<td bgcolor="#000000" height="1" width="100%">
+		<img alt="" width="1" height="1" src="images/MsSpacer.gif"></td>
+	</tr>
+		</table>
+		</td>
+	</tr>
+
+
+
+
+	<tr>
+		<td valign="top">
+		<!-- MSCellType="NavBody" -->
+		<p align="center"><font face="Verdana" size="5" color="#000080">
+		Introduction</font></td>
+		<td valign="top" height="420">
+		<!-- MSCellType="ContentBody" -->
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%">
+	<!-- MSCellFormattingTableID="3" -->
+	<tr>
+		<td valign="top" height="100%">
+		<!-- MSCellFormattingType="content" -->
+		<font face="Verdana">Typically a compiler 
+		is made up of a front end that converts source programs to a intermediate 
+		representation, a middle end that carries out phases of optimizations 
+		and a back end that generates target object codes. In
+		this project, you are expected to implement the middle part of a toy 
+		compiler that accepts a subset of C. </font>
+		<p><font face="Verdana">Two phases are required:</font></p>
+		<ol>
+			<li><font face="Verdana">Value Numbering: to implement value numbering.</font></li>
+			<li><font face="Verdana">Data Flow Analysis: to implement a few optimizations involving data flow analysis.</font></li>
+		</ol>
+		<div class="Section1">
+			<p class="MsoNormal"><font face="Verdana">The accepted language is a 
+			subset of C. The test programs that will be used to evaluate the 
+			following properties: </font></p>
+			<ul style="MARGIN-TOP: 0in" type="disc">
+				<li class="MsoNormal"><font face="Verdana">There are no pointers 
+				in the program. </font></li>
+				<li class="MsoNormal"><font face="Verdana">There are no 
+				structure types in the program. </font></li>
+				<li class="MsoNormal"><font face="Verdana">The only data types 
+				are integer and floating point scalars and one-dimensional 
+				integer arrays. </font></li>
+			</ul>
+			<p class="MsoNormal"><font face="Verdana">The
+			compiler is written in Java. If you are not
+			familiar with Java, you can easily find many
+			resources for learning.</font></div>
+		</td>
+	</tr>
+
+	<tr>
+		<td bgcolor="#000000" height="1" width="100%">
+		<img alt="" width="1" height="1" src="images/MsSpacer.gif"></td>
+	</tr>
+		</table>
+		</td>
+	</tr>
+
+
+	<tr>
+		<td valign="top">
+		<!-- MSCellType="NavBody" -->
+		<p align="center"><font face="Verdana" size="5" color="#000080">Setup</font></td>
+		<td valign="top" height="590">
+		<!-- MSCellType="ContentBody" -->
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%">
+	<!-- MSCellFormattingTableID="1" -->
+	<tr>
+		<td valign="top" height="100%">
+		<!-- MSCellFormattingType="content" -->
+		<font face="Verdana" color="#000080" size="4">Here, we
+		briefly describe the working procedure of the
+		offered compiler. 
+<br>
+<p>Step I: test_prog.c --&gt; {test_prog.adap, 
+		test_prog.adap.h}</font></p><p><font face="Verdana">We use <i>lcc</i> as our 
+		compiler's front end that converts the test programs into an 
+		intermediate form, ADAP.&nbsp; ADAP is actually an abstract syntax tree 
+		(AST) whose readable form is dumped into an output file with extension
+		<i>.adap</i>. For your convenience, we have already converted the test 
+		programs and put into the adapt_files folder in the
+		project template. It can also be downloaded
+		separately <a href="adaptFiles.tar">here</a>.</font></p>
+		<p><font face="Verdana" size="4" color="#000080">Step II: {test_prog.adap, 
+		test_prog.adap.h} --&gt; AST </font></p>
+		<p><font face="Verdana">Now it comes to Java. The
+			<i>AST_lib</i> offers 
+		classes to transform the .adap files into internal AST representations. 
+		You'll create an instance of <i>ProgAst</i> using your test program's 
+		adap file name as the constructor's input parameter. Then you'll be 
+		working on the AST all the way until code generation.</font></p>
+		<p><font face="Verdana" size="4" color="#000080">Step III: AST --&gt; 
+		test_prog.out.c</font></p>
+		<p><font face="Verdana">The third step is code generation which is 
+		simply done by calling the AST's method <i>GenCode().</i> An output C 
+		file will be dumped with extension <i>.out.c</i>. Now compile the 
+		output .out.c file into an executable object file then run it on your 
+		PC, you'll see and check the outputs. </font></p>
+		<p><font face="Verdana">Of course you have to make every step working to 
+		see the final correct results. </font></p>
+		<p><font face="Verdana">The
+		ConstFolding <a href="example.zip">example</a>
+		(ConstFolding.java) shows the use of the parser and
+		code generator as well as traversal and modification
+		of an AST program tree. A test input is also included
+		in the example: initial program is const1.c;
+		first converted to const1.adap and const1.adap.h by
+		lcc; then applied constant folding by ConstFolding
+		procedure; finally the output is in
+		const1.out.c. </font></p>
+
+
+		<div class="Section1">
+			<p class="MsoNormal"><font face="Verdana">You
+			are provided with a template for the project.
+			You can reuse the <i>Makefile</i> and 
+			the directory organization. Just add your own files and 
+			make small changes to the Makefile. Type </font>
+			<font face="Courier New">make</font><font face="Verdana">, you'll 
+			complete build, compile and run in a batch way. Check it out
+			<a href="CSC766ProjectTemplate.tar.gz">
+			here</a> and use it as a start point of your
+			whole project. Read the README.txt in the
+			package first!
+                        Machines used for testing: the Linux systems in the NCSU VCL (use the
+			"CSC 766 Code Optimization" image, which will
+			be used in our grading). 
+
+</font></div>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#000000" height="1" width="100%">
+		<img alt="" width="1" height="1" src="images/MsSpacer.gif"></td>
+		</table>
+	</tr>
+	<tr>
+		<td valign="top" width="200">
+		<!-- MSCellType="NavBody" -->
+		<p align="center"><font face="Verdana" size="5" color="#000080">In 
+		Detail</font></td>
+		<td valign="top" height="300" width="800">
+		<!-- MSCellType="ContentBody" -->
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%">
+	<!-- MSCellFormattingTableID="5" -->
+
+                        <font face="Verdana" color="#000080" size="4">Phase I: <a name="VN"></a>Value
+                        Numbering</font><div class="Section1">
+
+                                <p class="MsoNormal"><font face="Verdana">
+				Value numbering is a classic technique
+				that eliminates redundancies in the
+				linear IR. In this phase, you need to
+				implement value numbering in your
+				compiler. Essentially, you should take
+				care of your hash table. As you know,
+				value numbering can be carried out on
+				different level of scopes: BB, EBB, or
+				even bigger regions. In this
+				assignment, you are only required to
+				implement the algorithm within a basic
+				block. You are certainly welcome to
+				try larger scopes if you'd like.  Your
+				modified compiler should generate the
+				C code rewritten upon the value
+				numbering (i.e., with redundant
+				expressions removed). </font></p>
+
+                        <font face="Verdana" color="#000080" size="4">Phase II: <a name="DataFlow"></a>Data
+                        Flow</font><div class="Section1">
+
+                                <p class="MsoNormal"><font face="Verdana">
+				The optimizations in this phase
+				involve data flow analysis. You may
+				choose to implement one or more of the following:
+				</font></p>
+				<p class="MsoNormal"><font face="Verdana">
+				* Constant propagation
+				</font></p>
+				<p class="MsoNormal"><font face="Verdana">
+				* Avail
+				</font></p>
+				<p class="MsoNormal"><font face="Verdana">
+				* Dead code elimination
+				</font></p>
+				<p class="MsoNormal"><font face="Verdana">
+Note:</p>
+
+<ul style='margin-top:0in' type=disc>
+<li class=MsoNormal style='mso-list:l7 level1 lfo37;tab-stops:list .5in'>no hard
+coding program output allowed</li>
+<li class=MsoNormal style='mso-list:l7 level1 lfo37;tab-stops:list .5in'>no 
+copying of other one's code allowed</li>
+</ul>
+
+				</font></p>
+							
+	</tr>
+
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" width="200">
+		<!-- MSCellType="NavBody" -->
+		<p align="center"><font face="Verdana" size="5" color="#000080">Turn In</font></td>
+		<td valign="top" height="" width="200">
+		<!-- MSCellType="ContentBody" -->
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%">
+	<!-- MSCellFormattingTableID="6" -->
+	<tr>
+		<td valign="top" height="100%">
+		<!-- MSCellFormattingType="content" -->
+		<font face="Verdana">You must include a Readme file in which you should 
+		mention your name and the phase number first. Extra info should be 
+		presented are</font><ul>
+			<li><font face="Verdana">file and directory descriptions</font></li>
+			<li><font face="Verdana">building and running guide</font></li>
+			<li><font face="Verdana">program descriptions, on structure and 
+			function</font></li>
+			<li><font face="Verdana">descriptions of your optimizations</font></li>
+			<li><font face="Verdana">bug reports</font></li>
+		</ul>
+		<p><font face="Verdana">A clear readme file is necessary for others to 
+		judge what you have done so that your effort be fairly evaluated. So 
+		don't save too much time on that. </font></p>
+		
+			<p class="MsoNormal"><font face="Verdana" size="4" color="#000080">
+			Late Policy:</font></p>
+			<p class="MsoNormal"><font face="Verdana">Late
+			submissions are not accepted unless there are
+			some legitimate reasons (e.g., medication)
+			with valid proofs. </font></div>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#000000" height="1" width="100%">
+		<img alt="" width="1" height="1" src="images/MsSpacer.gif"></td>
+
+	</tr>
+	
+		</table>
+		</td>
+	</tr>
+
+	</table>
+
+</div>
+
+</body>
+
+</html>
