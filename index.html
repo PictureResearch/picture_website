@@ -30,7 +30,7 @@
 <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 <![endif]-->
 
-<script src="https://cdn.ncsu.edu/brand-assets/utility-bar/ub.php?maxWidth=1100&color=gray"></script>
+<!-- <script src="https://cdn.ncsu.edu/brand-assets/utility-bar/ub.php?maxWidth=1100&color=gray"></script> -->
 <link rel='dns-prefetch' href='https://s.w.org/' />
 
 		<script type="text/javascript">
@@ -86,22 +86,23 @@ img.emoji {
    #access ul a:focus+ul {
    	margin-left:0;
    }
-</style><link rel="shortcut icon" href="assets/img/favicon.ico" />
+
+</style><link rel="shortcut icon" href="assets/img/Purdue-icon.png" />
 <link href="https://cdn.ncsu.edu/brand-assets/fonts/include.css" rel="stylesheet" type="text/css" />
 
 </head>
 
-<body class="home page-template-default page page-id-12 single-author singular two-column right-sidebar">
-<div id="ncstate-utility-bar"></div>
+<!-- <body class="home page-template-default page page-id-12 single-author singular two-column right-sidebar"> -->
+<!-- <div id="ncstate-utility-bar"></div> -->
 				
 <div id="page" class="hfeed">
 	<header id="branding" role="banner">
 		
 			   
 		<div class="logo">
-			<a href="https://www.ncsu.edu"><img src="https://cdn.ncsu.edu/brand-assets/utility-bar/img/ncstate-brick-2x2-red.jpg" class="ncsu-banner" /></a>
-			<a href="index.html"><img src="assets/img/group_icon.png" class="ncsu-banner" /></a>
-			<div id="site-title" aria-level="1" role="heading"><span><a href="index.html" title="NCSU Systems Laboratory" rel="home">PICTure Research Group</a></span></div>
+			<a href="https://www.purdue.edu"><img src="assets/img/purdue-university-logo-transparent.png" class="ncsu-banner" /></a>
+			<a href="https://engineering.purdue.edu/ECE"><img src="assets/img/purdue_ECE_logo.jpg" class="ncsu-banner" /></a>
+			<div id="site-title" aria-level="1" role="heading"><span><a href="index.html" title="Purdue PICture" rel="home">PICTure Research Group</a></span></div>
 			<div id="site-description" aria-level="2"></div>
 		</div>           
 
@@ -145,7 +146,7 @@ function carousel() {
 
 <li id="menu-item-13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-12 current_page_item menu-item-13"><a href="index.html">Home</a></li>
 
-<li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="news.html">News</a></li>
+<!-- <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="news.html">News</a></li> -->
 
 <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="people.html">People</a></li>
 
@@ -159,7 +160,6 @@ function carousel() {
 
 </ul></div>			</nav><!-- #access -->
 	</header><!-- #branding -->
-
 
 	<div id="main">
 		<div id="primary">
@@ -175,9 +175,10 @@ function carousel() {
 
 	<div class="entry-content">
 		<hr>
-		<div>The PICTure (<strong>P</strong>rogramming Systems
+		<div>PICTure (<strong>P</strong>rogramming Systems
 		and <strong>I</strong>ntelligent <strong>C</strong>omputing
-		for Fu<strong>ture</strong>) group at NCSU conducts
+		for Fu<strong>ture</strong>) is a research group at the <a href="https://engineering.purdue.edu/ECE">Elmore Family School of Electrical and Computer Engineering</a>
+ at the <a href="https://purdue.edu">Purdue University</a>, conducting
 		research in the area of compiler technology and
 		intelligent programming systems, with the emphasis on
 		heterogeneous parallel computing, memory performance,
@@ -206,9 +207,9 @@ function carousel() {
 				<aside id="recentnews" class="widget">
 					<h3 class="widget-title"><p><p>Recent News</h3>
 					<h3 class="textwidget">
-						<li><strong>2023/08: </strong> Yuanchao Xu completes his PhD defense. Congratulations!</li>
-						<li><strong>2022/10: </strong> Zifan Nan completes his PhD defense. Congratulations!</li>
-						<li><strong>2022/05: </strong> Guoqiang Zhang completes his PhD defense. Congratulations!</li>
+					        <li><strong>07/2026: </strong> Picture group moves from NC State to Purdue University. Go Boilers!</li>
+						<li><strong>05/2026: </strong> Xining Hui completes her PhD defense. Congratulations!</li>
+						<li><strong>01/2026: </strong> Dr. Xipeng Shen is elevated to IEEE Fellow!</a>
 					</h3>
 				</aside>
 		
@@ -226,10 +227,11 @@ function carousel() {
 	<footer id="colophon" role="contentinfo">
 
 			
+<div>
+  Last modified &copy; <span id="last-modified"></span> |
+  <a href="http://purdue.edu" target="PURDUE">Purdue University</a>
+</div>
 
-			<div id="supplementary" class="credits">
-								<div>Copyright &copy; 2017 | <a href="http://ncsu.edu" target="NCSU">NC State University</a> | <a href="http://oit.ncsu.edu/" target="Accessibility">Accessibility</a> | <a href="http://www.ncsu.edu/privacy/" target="Privacy">Privacy</a> | <a href="http://policies.ncsu.edu/" target="Policies">University Policies</a><!--| <a href="" title="" rel="generator"></a>--></div>
-			</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
@@ -240,6 +242,16 @@ function carousel() {
  });
 </script>
 
+<script>
+  const modifiedDate = new Date(document.lastModified);
+
+  document.getElementById("last-modified").textContent =
+    modifiedDate.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
+</script>
 
 </body>
 </html>

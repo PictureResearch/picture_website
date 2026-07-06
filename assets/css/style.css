@@ -60,24 +60,36 @@ a.assistive-text:focus {
 
 select {height:30px;}
 
+#main {
+	display: flex;
+	align-items: flex-start;
+	gap: 36px;
+	padding: 0;
+}
+
 #primary {
-	float: left;
-	margin: 2px -26.4% 2px 0;
-	padding:0;
-	padding-bottom:30px;
-	/*width: 740px;*/
+	flex: 1 1 auto;
+	min-width: 0;
+	float: none;
+	margin: 2px 0 2px 0;
+	padding: 0 0 30px 0;
 }
+
 #primary #content {
-	margin: 16px 34% 0 0.8%;
-	padding-right:3px;
-	width: 98.6%;
-	font-family: UniversRoman,Arial,sans-serif;
+	margin: 16px 0 0 0.8%;
+	padding-right: 3px;
+	width: auto;
+	max-width: 100%;
+	font-family: UniversRoman, Arial, sans-serif;
 }
+
 div #secondary, .singular #secondary {
-	float: right;
-	margin:3px 0px 8px 14px;
-	width: 23.8%;
+	flex: 0 0 260px;
+	width: 260px;
+	float: none;
+	margin: 3px 0 8px 0;
 }
+
 
 /* Singular */
 
@@ -653,8 +665,38 @@ aside.callout_widget a img {border:none; padding:0; max-width:90%;}
 #supplementary div {text-align:left;color:#fff;}
 #supplementary div a {color:#fff;}
 
+/* Prevent text from running into sidebar */
+#content,
+.entry-content {
+	max-width: 100%;
+	overflow-wrap: break-word;
+}
+
+/* Mobile/tablet: stack news below main text */
+@media screen and (max-width: 768px) {
+	#main {
+		display: block;
+	}
+
+	#primary,
+	div #secondary,
+	.singular #secondary {
+		float: none !important;
+		width: auto !important;
+		max-width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	div #secondary,
+	.singular #secondary {
+		margin-top: 30px;
+	}
+}
+
 @media print {
 
 .skip-link, .ncstate-utility-bar, #branding, #access, #secondary, #supplementary {display:none !important;}
    
 }
+
